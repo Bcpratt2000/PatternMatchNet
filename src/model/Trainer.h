@@ -24,11 +24,13 @@
 namespace std {
 
 class Trainer {
+private:
 	vector<NetworkNode> nodes;
+	string file;
 public:
 	vector<NetworkNode> getNodes();
-	void train(string);
-	Trainer();
+	void train();
+	Trainer(string);
 	virtual ~Trainer();
 };
 

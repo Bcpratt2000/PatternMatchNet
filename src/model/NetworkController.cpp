@@ -10,7 +10,13 @@
 namespace std {
 
 NetworkController::NetworkController() {
-	// TODO Auto-generated constructor stub
+	english = NetworkLayer();
+	mash = NetworkLayer();
+
+}
+
+string check(string text){
+
 
 }
 

@@ -9,11 +9,12 @@
 
 namespace std {
 
-Trainer::Trainer() {
+Trainer::Trainer(string file) {
+	Trainer::file = file;
 
 }
 
-void Trainer::train(string file) {
+void Trainer::train() {
 	string trainingData;
 	// puts the contents of in into trainingData
 	cout << "Reading " << file << " into memory..." << endl;

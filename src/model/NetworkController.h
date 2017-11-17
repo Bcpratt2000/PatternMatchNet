@@ -5,13 +5,28 @@
  *      Author: ben
  */
 
+#include <string>
+#include <vector>
+
+#include "Trainer.h"
+#include "NetworkLayer.h"
+#include "Trainer.h"
+
+
 #ifndef MODEL_NETWORKCONTROLLER_H_
 #define MODEL_NETWORKCONTROLLER_H_
 
 namespace std {
 
 class NetworkController {
+private:
+	Trainer englishTrainer;
+	Trainer mashTrainer;
+
+	NetworkLayer english;
+	NetworkLayer mash;
 public:
+	string check(string);
 	NetworkController();
 	virtual ~NetworkController();
 };
