@@ -12,19 +12,19 @@
 
 namespace std {
 
-class Node {
+class NetworkNode {
 private:
 	double weight;
-	string label;
+	string pattern;
 public:
-	Node();
-	virtual ~Node();
+	NetworkNode(string, double);
+	virtual ~NetworkNode();
 
-	string getLabel();
-	void setLabel(string label);
+	string getPattern();
+	void setPattern(string);
 
 	double getWeight();
-	void setWeight(double weight);
+	void setWeight(double);
 };
 
 } /* namespace std */

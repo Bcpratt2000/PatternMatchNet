@@ -5,15 +5,22 @@
  *      Author: ben
  */
 
+#include "Util.h"
+#include <vector>
+#include "NetworkNode.h"
+
 #ifndef MODEL_NETWORKLAYER_H_
 #define MODEL_NETWORKLAYER_H_
 
 namespace std {
 
 class NetworkLayer {
+private:
+	vector<NetworkNode> nodes;
 public:
-	NetworkLayer();
+	NetworkLayer(vector<NetworkNode>);
 	virtual ~NetworkLayer();
+	double calculate(string);
 };
 
 } /* namespace std */
