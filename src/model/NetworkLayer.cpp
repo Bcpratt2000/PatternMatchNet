@@ -7,7 +7,6 @@
 
 #include "NetworkLayer.h"
 
-namespace std {
 
 NetworkLayer::NetworkLayer(vector<NetworkNode> nodes) {
 	NetworkLayer::nodes = nodes;
@@ -26,5 +25,3 @@ double NetworkLayer::calculate(string text){
 NetworkLayer::~NetworkLayer() {
 //	delete nodes;
 }
-
-} /* namespace std */

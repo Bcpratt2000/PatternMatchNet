@@ -6,22 +6,16 @@
  */
 
 #include "NetworkController.h"
-
-namespace std {
-
-NetworkController::NetworkController() {
-	english = NetworkLayer();
-	mash = NetworkLayer();
-
-}
-
-string check(string text){
-
-
+NetworkController::NetworkController(){
+	englishTrainer = englishTrainer(string("/file/path"));
+	mashTrainer = mashTrainer(string("/file/path"));
 }
 
 NetworkController::~NetworkController() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace std */
+string check(string text){
+
+	return "";
+}

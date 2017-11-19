@@ -7,8 +7,6 @@
 
 #include "Trainer.h"
 
-namespace std {
-
 Trainer::Trainer(string file) {
 	Trainer::file = file;
 
@@ -60,4 +58,3 @@ Trainer::~Trainer() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace std */

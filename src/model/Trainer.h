@@ -21,19 +21,20 @@
 #ifndef MODEL_TRAINER_H_
 #define MODEL_TRAINER_H_
 
-namespace std {
+using namespace std;
 
 class Trainer {
-private:
-	vector<NetworkNode> nodes;
-	string file;
 public:
 	vector<NetworkNode> getNodes();
 	void train();
+	Trainer() = default;
 	Trainer(string);
 	virtual ~Trainer();
+private:
+	vector<NetworkNode> nodes;
+	string file;
+
 };
 
-} /* namespace std */
 
 #endif /* MODEL_TRAINER_H_ */

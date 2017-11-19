@@ -12,17 +12,17 @@
 #ifndef MODEL_NETWORKLAYER_H_
 #define MODEL_NETWORKLAYER_H_
 
-namespace std {
+using namespace std;
 
-class NetworkLayer {
+class NetworkLayer{
+
 private:
 	vector<NetworkNode> nodes;
 public:
+	NetworkLayer() = default;
 	NetworkLayer(vector<NetworkNode>);
 	virtual ~NetworkLayer();
 	double calculate(string);
 };
-
-} /* namespace std */
 
 #endif /* MODEL_NETWORKLAYER_H_ */

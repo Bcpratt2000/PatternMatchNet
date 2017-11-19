@@ -10,13 +10,12 @@
 
 #include "Trainer.h"
 #include "NetworkLayer.h"
-#include "Trainer.h"
 
 
 #ifndef MODEL_NETWORKCONTROLLER_H_
 #define MODEL_NETWORKCONTROLLER_H_
 
-namespace std {
+using namespace std;
 
 class NetworkController {
 private:
@@ -30,7 +29,5 @@ public:
 	NetworkController();
 	virtual ~NetworkController();
 };
-
-} /* namespace std */
 
 #endif /* MODEL_NETWORKCONTROLLER_H_ */
