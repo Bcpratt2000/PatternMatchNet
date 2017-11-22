@@ -10,6 +10,7 @@
 #include <streambuf>
 #include <stdio.h>
 #include <vector>
+#include <sstream>
 
 #include "NetworkNode.h"
 
@@ -24,7 +25,7 @@ public:
 	virtual ~Util();
 	static int countOccurences(string, string);
 	static string readFile(string);
-	static int findPatternInNodeVector(vector<NetworkNode>, string);
+	static int findPatternInNodeVector(vector<NetworkNode>&, string&);
 };
 
 

@@ -6,10 +6,12 @@
  */
 #include <iostream>
 #include <stdio.h>
+#include "../model/NetworkController.h"
 
 using namespace std;
 
 int main(){
+	NetworkController network=NetworkController();
 	cout << "Hello, world" << endl;
 }
 

@@ -23,5 +23,5 @@ double NetworkLayer::calculate(string text){
 }
 
 NetworkLayer::~NetworkLayer() {
-//	delete nodes;
+
 }

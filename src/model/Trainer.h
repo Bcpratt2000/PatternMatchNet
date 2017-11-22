@@ -11,6 +11,7 @@
 #include <cctype>
 #include <fstream>
 #include <algorithm>
+#include <stdio.h>
 
 #define MIN_CHARACTERS 2
 #define MAX_CHARACTERS 5
@@ -27,7 +28,7 @@ class Trainer {
 public:
 	vector<NetworkNode> getNodes();
 	void train();
-	Trainer() = default;
+	Trainer();
 	Trainer(string);
 	virtual ~Trainer();
 private:

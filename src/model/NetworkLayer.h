@@ -8,6 +8,7 @@
 #include "Util.h"
 #include <vector>
 #include "NetworkNode.h"
+#include <string>
 
 #ifndef MODEL_NETWORKLAYER_H_
 #define MODEL_NETWORKLAYER_H_

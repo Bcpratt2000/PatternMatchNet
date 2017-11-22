@@ -27,19 +27,18 @@ string Util::readFile(string file) {
 	string strBuffer = "";
 
 	std::ifstream fileStream;
-	fileStream.open(file);
-	while (fileStream.is_open()) {
-		fileStream >> strBuffer;
-	}
+	fileStream.open(file.c_str());
+	ostringstream ss = ostringstream { };
+	ss << fileStream.rdbuf();
 	fileStream.close();
 
-	return strBuffer;
+	return ss.str();
 }
 
-int Util::findPatternInNodeVector(vector<NetworkNode> nodes, string text){
+int Util::findPatternInNodeVector(vector<NetworkNode>& nodes, string& text) {
 	for (unsigned int i = 0; i < nodes.size(); i++) {
-			if (nodes.at(i).getPattern()==text)
-					return i;
+		if (nodes.at(i).getPattern() == text)
+			return i;
 	}
 	return -1;
 }

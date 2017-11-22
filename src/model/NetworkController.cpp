@@ -6,9 +6,13 @@
  */
 
 #include "NetworkController.h"
+
 NetworkController::NetworkController(){
-	englishTrainer = englishTrainer(string("/file/path"));
-	mashTrainer = mashTrainer(string("/file/path"));
+	string filePath = "/home/ben/eclipse-workspace/NeuralNet/src/model/TrainingData/English.txt";
+	englishTrainer = Trainer(filePath);
+	mashTrainer = Trainer(filePath);
+	englishTrainer.train();
+	cout << "trained" << endl;
 }
 
 NetworkController::~NetworkController() {

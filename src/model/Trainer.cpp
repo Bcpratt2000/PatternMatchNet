@@ -7,8 +7,13 @@
 
 #include "Trainer.h"
 
+Trainer::Trainer()
+{
+	this->file = "";
+}
+
 Trainer::Trainer(string file) {
-	Trainer::file = file;
+	this->file = file;
 
 }
 
@@ -17,6 +22,9 @@ void Trainer::train() {
 	// puts the contents of in into trainingData
 	cout << "Reading " << file << " into memory..." << endl;
 	trainingData = Util::readFile(file); //TODO change to lowercase
+	if(trainingData == ""){
+		cout << file + " is empty or does not exist" << endl;
+	}
 
 	cout << "Training..." << endl;
 
@@ -26,7 +34,8 @@ void Trainer::train() {
 	// counts the occurrences of every character string in the file withing the character limits
 	for (unsigned int charLength = MIN_CHARACTERS; charLength <= MAX_CHARACTERS; charLength++) {
 		for (unsigned int i = 0; i < trainingData.size() - charLength; i++) {
-			trainingBuffer = trainingData.substr(i, i + charLength);
+			trainingBuffer = trainingData.substr(i, charLength);
+//			cout << trainingBuffer << endl;
 			indexInVector = Util::findPatternInNodeVector(nodes, trainingBuffer);
 			if (indexInVector == -1) {
 				nodes.push_back(NetworkNode(trainingBuffer, 1));
@@ -41,18 +50,27 @@ void Trainer::train() {
 	// multiplies the weights by the string length and divides them by the length of
 	// the training data
 	for (unsigned int i = 0; i < nodes.size(); i++) {
-		nodes.at(i).setWeight((nodes.at(i).getWeight() * ((double) nodes.size() * 26)) / (double) trainingData.length());
+		nodes.at(i).setWeight(nodes.at(i).getWeight()*26 / (double) trainingData.length());
 	}
 
 	//sorting is not implemented/required at the moment
-//	cout << "Weights calculated, sorting..." << endl;
+	cout << "Weights calculated, sorting..." << endl;
+
+	int isSorted = 1;
+	//TODO write sorting
 
 	cout << "Network trained from file: " << file << endl;
+
+	for(unsigned int i=0; i<nodes.size(); i++){
+		cout << nodes.at(i).getPattern() << ": " << nodes.at(i).getWeight() << endl;
+	}
 
 }
 vector<NetworkNode> Trainer::getNodes(){
 	return nodes;
 }
+
+
 
 Trainer::~Trainer() {
 	// TODO Auto-generated destructor stub
