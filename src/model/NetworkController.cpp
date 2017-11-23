@@ -23,7 +23,7 @@ NetworkController::~NetworkController() {
 }
 
 string NetworkController::check(string text){
-	if(mash.calculate(text)<english.calculate(text)){
+	if(mash.calculate(text)<=english.calculate(text)){
 		return "english";
 	}
 	return "mash";
