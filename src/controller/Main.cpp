@@ -6,12 +6,19 @@
  */
 #include <iostream>
 #include <stdio.h>
+#include <string>
 #include "../model/NetworkController.h"
 
 using namespace std;
 
 int main(){
 	NetworkController network=NetworkController();
-	cout << "Hello, world" << endl;
+	string tempStr;
+	while(true){
+		cout << "Enter text: ";
+		getline(cin, tempStr);
+		cout << network.check(tempStr) << endl;
+
+	}
 }
 

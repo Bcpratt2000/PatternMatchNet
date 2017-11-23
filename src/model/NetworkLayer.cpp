@@ -15,9 +15,10 @@ NetworkLayer::NetworkLayer(vector<NetworkNode> nodes) {
 }
 
 double NetworkLayer::calculate(string text){
+	Util::toLower(text);
 	double accum = 0;
 	for(unsigned int i=0; i<NetworkLayer::nodes.size(); i++){
-//		accum+=nodes.at(i).getWeight() * Util::countOccurences(text, nodes.at(i).getPattern());
+		accum+=nodes.at(i).getWeight() * Util::countOccurences(text, nodes.at(i).getPattern());
 	}
 	return accum;
 }

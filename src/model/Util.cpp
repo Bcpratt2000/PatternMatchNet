@@ -12,7 +12,7 @@ Util::Util() {
 
 }
 
-int Util::countOccurences(string& sample, string& pattern) {
+int Util::countOccurences(string sample, string pattern) {
 	int index = sample.find(pattern);
 	int count = 0;
 	while (index != -1) {

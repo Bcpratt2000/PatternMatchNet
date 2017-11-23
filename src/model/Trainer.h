@@ -13,7 +13,7 @@
 #include <algorithm>
 #include <stdio.h>
 
-#define MIN_CHARACTERS 2
+#define MIN_CHARACTERS 1
 #define MAX_CHARACTERS 4
 
 #include "Util.h"

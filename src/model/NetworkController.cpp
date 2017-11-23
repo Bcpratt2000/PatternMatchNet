@@ -8,18 +8,23 @@
 #include "NetworkController.h"
 
 NetworkController::NetworkController(){
-	string filePath = "src/model/TrainingData/WallOfText.txt";
-	englishTrainer = Trainer(filePath);
-	mashTrainer = Trainer(filePath);
+	englishTrainer = Trainer("src/model/TrainingData/WallOfText.txt");
+	mashTrainer = Trainer("src/model/TrainingData/keyMash.txt");
+
 	englishTrainer.train();
-	cout << "trained" << endl;
+	mashTrainer.train();
+
+	english = NetworkLayer(englishTrainer.getNodes());
+	mash = NetworkLayer(mashTrainer.getNodes());
 }
 
 NetworkController::~NetworkController() {
 	// TODO Auto-generated destructor stub
 }
 
-string check(string text){
-
-	return "";
+string NetworkController::check(string text){
+	if(mash.calculate(text)<english.calculate(text)){
+		return "english";
+	}
+	return "mash";
 }

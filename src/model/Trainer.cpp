@@ -64,7 +64,7 @@ void Trainer::train() {
 	while (!isSorted) {
 		isSorted = true;
 		iterations++;
-		for (unsigned int i = 0; i <= nodes.size() - MIN_CHARACTERS; i++) {
+		for (unsigned int i = 0; i < nodes.size() - MIN_CHARACTERS; i++) {
 			if (nodes.at(i).getWeight() > nodes.at(i + 1).getWeight()) {
 				flips++;
 				isSorted = false;
