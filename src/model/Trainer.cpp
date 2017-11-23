@@ -7,8 +7,7 @@
 
 #include "Trainer.h"
 
-Trainer::Trainer()
-{
+Trainer::Trainer() {
 	this->file = "";
 }
 
@@ -18,11 +17,12 @@ Trainer::Trainer(string file) {
 }
 
 void Trainer::train() {
-	string trainingData;
 	// puts the contents of in into trainingData
 	cout << "Reading " << file << " into memory..." << endl;
-	trainingData = Util::readFile(file); //TODO change to lowercase
-	if(trainingData == ""){
+	string trainingData =Util::readFile(file);
+	Util::toLower(trainingData);
+
+	if (trainingData == "") {
 		cout << file + " is empty or does not exist" << endl;
 	}
 
@@ -50,27 +50,49 @@ void Trainer::train() {
 	// multiplies the weights by the string length and divides them by the length of
 	// the training data
 	for (unsigned int i = 0; i < nodes.size(); i++) {
-		nodes.at(i).setWeight(nodes.at(i).getWeight()*26 / (double) trainingData.length());
+		nodes.at(i).setWeight(nodes.at(i).getWeight() * 26 / (double) trainingData.length());
 	}
 
 	//sorting is not implemented/required at the moment
 	cout << "Weights calculated, sorting..." << endl;
 
-	int isSorted = 1;
-	//TODO write sorting
+	bool isSorted = false;
+	string tempPattern;
+	double tempWeight;
+	long flips = 0;
+	long iterations = 0;
+	while (!isSorted) {
+		isSorted = true;
+		iterations++;
+		for (unsigned int i = 0; i <= nodes.size() - MIN_CHARACTERS; i++) {
+			if (nodes.at(i).getWeight() > nodes.at(i + 1).getWeight()) {
+				flips++;
+				isSorted = false;
+				tempPattern = nodes.at(i).getPattern();
+				tempWeight = nodes.at(i).getWeight();
 
-	cout << "Network trained from file: " << file << endl;
+				nodes.at(i).setWeight(nodes.at(i + 1).getWeight());
+				nodes.at(i).setPattern(nodes.at(i + 1).getPattern());
 
-	for(unsigned int i=0; i<nodes.size(); i++){
+				nodes.at(i + 1).setPattern(tempPattern);
+				nodes.at(i + 1).setWeight(tempWeight);
+			}
+		}
+
+	}
+
+	cout << "Sorted with " << iterations << " iterations and " << flips << " flips" << endl;
+
+	for (unsigned int i = 0; i < nodes.size(); i++) {
 		cout << nodes.at(i).getPattern() << ": " << nodes.at(i).getWeight() << endl;
 	}
 
+	cout << "Network trained from file: " << file  << " with " << nodes.size() << " nodes" << endl;
+
 }
-vector<NetworkNode> Trainer::getNodes(){
+vector<NetworkNode> Trainer::getNodes() {
 	return nodes;
 }
-
-
 
 Trainer::~Trainer() {
 	// TODO Auto-generated destructor stub

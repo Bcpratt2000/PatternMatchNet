@@ -8,7 +8,7 @@
 #include "NetworkController.h"
 
 NetworkController::NetworkController(){
-	string filePath = "/home/ben/eclipse-workspace/NeuralNet/src/model/TrainingData/English.txt";
+	string filePath = "src/model/TrainingData/WallOfText.txt";
 	englishTrainer = Trainer(filePath);
 	mashTrainer = Trainer(filePath);
 	englishTrainer.train();

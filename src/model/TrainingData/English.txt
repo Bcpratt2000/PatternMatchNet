@@ -1,0 +1,24 @@
+Rogue wireless hardware is easy to intr
+oduce. Wireless access 
+points are relatively 
+inexpensive and easily deployed. A well-inten
+tioned team of consultants working in a 
+conference room might install a 
+wireless access point in order to share a single wire port 
+in the room. A malicious hacker can sit in 
+a cafeteria with a wireless-enabled laptop 
+scanning for unencrypted or WE
+P-encrypted traffic. In both 
+cases, unacceptable risks are 
+introduced. Regardless of whether there is 
+malicious intent, the introduction of rogue 
+hardware can compromise the confidentiality
+ and integrity of network traffic. Rogue 
+wireless devices can be dete
+cted by physically examining in
+stallations (known as “war 
+driving”), using radio frequency (RF) scanne
+rs to determine the location of wireless 
+devices, or by using systems designed to 
+analyze network traffic for unauthorized 
+devices. 

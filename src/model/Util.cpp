@@ -12,7 +12,7 @@ Util::Util() {
 
 }
 
-int Util::countOccurences(string sample, string pattern) {
+int Util::countOccurences(string& sample, string& pattern) {
 	int index = sample.find(pattern);
 	int count = 0;
 	while (index != -1) {
@@ -41,6 +41,12 @@ int Util::findPatternInNodeVector(vector<NetworkNode>& nodes, string& text) {
 			return i;
 	}
 	return -1;
+}
+
+void Util::toLower(string& text){
+	for(unsigned int i = 0; i < text.length(); ++i) {
+		text[i] = tolower(text[i]);
+	}
 }
 
 Util::~Util() {

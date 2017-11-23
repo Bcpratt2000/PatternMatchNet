@@ -23,9 +23,10 @@ class Util {
 public:
 	Util();
 	virtual ~Util();
-	static int countOccurences(string, string);
+	static int countOccurences(string&, string&);
 	static string readFile(string);
 	static int findPatternInNodeVector(vector<NetworkNode>&, string&);
+	static void toLower(string&);
 };
 
 
