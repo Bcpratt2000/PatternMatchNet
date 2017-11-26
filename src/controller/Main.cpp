@@ -14,10 +14,10 @@ using namespace std;
 int main(){
 	NetworkController network=NetworkController();
 	string tempStr;
-	while(true){
+	while(tempStr!="exit" || tempStr!="quit"){
 		cout << "Enter text: ";
 		getline(cin, tempStr);
-		cout << network.check(tempStr) << endl;
+		cout << network.check(tempStr) << "\n" << endl;
 
 	}
 }

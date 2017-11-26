@@ -50,7 +50,7 @@ void Trainer::train() {
 	// multiplies the weights by the string length and divides them by the length of
 	// the training data
 	for (unsigned int i = 0; i < nodes.size(); i++) {
-		nodes.at(i).setWeight(nodes.at(i).getWeight() * 26 / (double) trainingData.length());
+		nodes.at(i).setWeight(nodes.at(i).getWeight() * nodes.at(i).getPattern().length() * 26 / (double) trainingData.length());
 	}
 
 	//sorting is not implemented/required at the moment

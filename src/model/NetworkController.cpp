@@ -8,8 +8,8 @@
 #include "NetworkController.h"
 
 NetworkController::NetworkController(){
-	englishTrainer = Trainer("src/model/TrainingData/WallOfText.txt");
-	mashTrainer = Trainer("src/model/TrainingData/keyMash.txt");
+	englishTrainer = Trainer("src/model/TrainingData/English.txt");
+	mashTrainer = Trainer("src/model/TrainingData/German.txt");
 
 	englishTrainer.train();
 	mashTrainer.train();
@@ -24,7 +24,7 @@ NetworkController::~NetworkController() {
 
 string NetworkController::check(string text){
 	if(mash.calculate(text)<=english.calculate(text)){
-		return "english";
+		return "English";
 	}
-	return "mash";
+	return "German";
 }
