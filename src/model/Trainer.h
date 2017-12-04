@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 #define MIN_CHARACTERS 1
-#define MAX_CHARACTERS 4
+#define MAX_CHARACTERS 3
 
 #include "Util.h"
 #include "NetworkNode.h"

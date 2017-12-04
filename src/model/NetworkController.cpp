@@ -9,7 +9,7 @@
 
 NetworkController::NetworkController(){
 	englishTrainer = Trainer("src/model/TrainingData/English.txt");
-	mashTrainer = Trainer("src/model/TrainingData/German.txt");
+	mashTrainer = Trainer("src/model/TrainingData/ComputerGeneratedNumbers.txt");
 
 	englishTrainer.train();
 	mashTrainer.train();
@@ -23,8 +23,10 @@ NetworkController::~NetworkController() {
 }
 
 string NetworkController::check(string text){
+	cout << mash.calculate(text) << endl;
+	cout << english.calculate(text) << endl;
 	if(mash.calculate(text)<=english.calculate(text)){
 		return "English";
 	}
-	return "German";
+	return "Number";
 }
