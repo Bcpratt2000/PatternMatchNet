@@ -12,6 +12,7 @@
 #include <fstream>
 #include <algorithm>
 #include <stdio.h>
+#include <future>
 
 #define MIN_CHARACTERS 1
 #define MAX_CHARACTERS 3
@@ -28,13 +29,15 @@ class Trainer {
 public:
 	vector<NetworkNode> getNodes();
 	void train();
+	void asyncTrain();
 	Trainer();
 	Trainer(string);
 	virtual ~Trainer();
 private:
 	vector<NetworkNode> nodes;
 	string file;
-
+	vector<NetworkNode> trainCharSet(unsigned int, string);
+	int add(int, int);
 };
 
 

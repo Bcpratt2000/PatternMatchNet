@@ -20,7 +20,7 @@ double NetworkLayer::calculate(string text){
 	for(unsigned int i=0; i<NetworkLayer::nodes.size(); i++){
 		accum+=nodes.at(i).getWeight() * Util::countOccurences(text, nodes.at(i).getPattern());
 	}
-	return accum;
+	return accum/text.size();
 }
 
 NetworkLayer::~NetworkLayer() {

@@ -20,5 +20,6 @@ int main(){
 		cout << network.check(tempStr) << "\n" << endl;
 
 	}
+	return 0;
 }
 
