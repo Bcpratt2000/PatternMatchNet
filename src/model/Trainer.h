@@ -15,7 +15,7 @@
 #include <future>
 
 #define MIN_CHARACTERS 1
-#define MAX_CHARACTERS 3
+#define MAX_CHARACTERS 2
 
 #include "Util.h"
 #include "NetworkNode.h"

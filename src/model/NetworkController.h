@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <stdio.h>
+#include <chrono>
 
 #include "Trainer.h"
 #include "NetworkLayer.h"
@@ -20,14 +21,14 @@ using namespace std;
 
 class NetworkController {
 private:
-	Trainer englishTrainer;
-	Trainer mashTrainer;
+	vector<NetworkLayer> networks;
+	vector<string> labels;
 
-	NetworkLayer english;
-	NetworkLayer mash;
+	NetworkLayer computer;
+	NetworkLayer human;
 public:
 	string check(string);
-	NetworkController();
+	NetworkController(vector<string>, vector<string>);
 	virtual ~NetworkController();
 };
 

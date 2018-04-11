@@ -12,33 +12,22 @@ Util::Util() {
 
 }
 
-unsigned long hash(string& input){
-		unsigned long long sumOfChars = 0;
-		auto inputArr = input.data();
-		unsigned long size = sizeof(inputArr);
-		unsigned long retBuffer = 0;
-
-		for(unsigned int i = 0; i<size*100; i++){
-			sumOfChars += inputArr[i%size]*inputArr[i<<(12203*i&size)%size];
-		}
-		retBuffer ^= (sumOfChars << 16);
-		sumOfChars=0;
-		for(unsigned int  i = 0; i<size*100; i++){
-			sumOfChars += inputArr[(sumOfChars+i*13)%size] ^ inputArr[(i*103841)%size];
-		}
-		retBuffer+=sumOfChars;
-		return retBuffer;
+unsigned long hash(string& input) {
+	unsigned long retBuffer = 0;
+	for (unsigned int i = 0; i < 16 * input.size(); i++) {
+		retBuffer += ((input[i % input.size()] ^ input[(i + 1) % input.size()]) * i * 100109) + (input[retBuffer % input.size()] * 100103);
 	}
+	return retBuffer;
+}
 
-	static int isInVector(vector<unsigned long long>& vect, unsigned long long& value){
-		for(unsigned long i = 0; i < vect.size(); i++){
-			if(vect.at(i) == value){
-				return 1;
-			}
+static int isInVector(vector<unsigned long long>& vect, unsigned long long& value) {
+	for (unsigned long i = 0; i < vect.size(); i++) {
+		if (vect.at(i) == value) {
+			return 1;
 		}
-		return 0;
 	}
-
+	return 0;
+}
 
 int Util::countOccurences(string sample, string pattern) {
 	int index = sample.find(pattern);
@@ -71,8 +60,8 @@ int Util::findPatternInNodeVector(vector<NetworkNode>& nodes, string& text) {
 	return -1;
 }
 
-void Util::toLower(string& text){
-	for(unsigned int i = 0; i < text.length(); ++i) {
+void Util::toLower(string& text) {
+	for (unsigned int i = 0; i < text.length(); ++i) {
 		text[i] = tolower(text[i]);
 	}
 }
